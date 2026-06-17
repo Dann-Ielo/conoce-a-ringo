@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ringo — El gato de Diego</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Cormorant Garamond (display) + DM Sans (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="navbar__logo">Ringo<span>.</span></div>
+    <ul class="navbar__links">
+      <li><a href="#hero" class="nav-link">Inicio</a></li>
+      <li><a href="#galeria" class="nav-link">Galería</a></li>
+      <li><a href="#historia" class="nav-link">Historia</a></li>
+    </ul>
+    <!-- Botón hamburguesa para móvil -->
+    <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Menú móvil desplegable -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="#hero" class="mobile-link">Inicio</a></li>
+      <li><a href="#galeria" class="mobile-link">Galería</a></li>
+      <li><a href="#historia" class="mobile-link">Historia</a></li>
+    </ul>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero" aria-label="Portada de Ringo">
+    <!-- Imagen de fondo (reemplazar por fotos/ringo1.jpg) -->
+    <div class="hero__bg" style="background-image: url('fotos/ringo1.jpg');"></div>
+    <!-- Capa oscura -->
+    <div class="hero__overlay"></div>
+
+    <!-- Contenido centrado -->
+    <div class="hero__content">
+      <p class="hero__eyebrow">el gato</p>
+      <h1 class="hero__title">Conoce a<br /><em>Ringo</em></h1>
+      <p class="hero__subtitle">Ringo es mi gato</p>
+
+      <!-- Flecha de navegación animada -->
+      <a href="#galeria" class="hero__arrow" aria-label="Ir a la galería">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+        <span>Conoce a Ringo</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== GALERÍA ===================== -->
+  <section class="gallery" id="galeria" aria-labelledby="gallery-heading">
+    <div class="section-header">
+      <span class="section-label">Momentos</span>
+      <h2 class="section-title" id="gallery-heading">Su vida en fotos</h2>
+    </div>
+
+    <div class="cards-grid">
+
+      <!-- Tarjeta 1 -->
+      <article class="card reveal" aria-label="Ringo descansando">
+        <div class="card__img-wrap">
+          <img src="fotos/ringo1.jpg" alt="Ringo descansando tranquilamente" loading="lazy" />
+        </div>
+        <div class="card__body">
+          <span class="card__tag">Descanso</span>
+          <h3 class="card__title">La siesta perfecta</h3>
+          <p class="card__text">Aquí Ringo estaba descansando. Encontró el rayo de sol preciso y no lo desaprovechó.</p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 2 -->
+      <article class="card reveal" aria-label="Ringo explorando">
+        <div class="card__img-wrap">
+          <img src="fotos/ringo2.jpg" alt="Ringo explorando el entorno" loading="lazy" />
+        </div>
+        <div class="card__body">
+          <span class="card__tag">Aventura</span>
+          <h3 class="card__title">El explorador</h3>
+          <p class="card__text">Le encanta explorar. Cada rincón de la casa es un nuevo territorio por descubrir.</p>
+        </div>
+      </article>
+
+      <!-- Tarjeta 3 -->
+      <article class="card reveal" aria-label="Momento favorito de Ringo">
+        <div class="card__img-wrap">
+          <img src="fotos/ringo3.jpg" alt="Uno de los momentos favoritos de Ringo" loading="lazy" />
+        </div>
+        <div class="card__body">
+          <span class="card__tag">Favorito</span>
+          <h3 class="card__title">Su momento especial</h3>
+          <p class="card__text">Uno de sus momentos favoritos. Ringo sabe exactamente cuándo hay que parar y disfrutar.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===================== HISTORIA ===================== -->
+  <section class="historia" id="historia" aria-labelledby="historia-heading">
+    <div class="section-header">
+      <span class="section-label">Su historia</span>
+      <h2 class="section-title" id="historia-heading">Quién es Ringo</h2>
+    </div>
+
+    <div class="historia__grid">
+      <!-- Columna de imagen -->
+      <div class="historia__img-wrap reveal">
+        <img src="fotos/ringo2.jpg" alt="Retrato de Ringo" />
+        <div class="historia__img-accent"></div>
+      </div>
+
+      <!-- Columna de texto -->
+      <div class="historia__text reveal">
+        <p class="historia__quote">"Un gato no te necesita. <em>Te elige.</em>"</p>
+        <p>Ringo llegó a casa un día cualquiera y lo cambió todo. Con su forma de mirar, de moverse y de ronronear en los momentos exactos, convirtió cada espacio en suyo.</p>
+        <p>Es curioso, independiente y tremendamente cariñoso cuando le da la gana. Tiene sus rutinas, sus rincones favoritos y una personalidad que no cabe en pocas palabras.</p>
+        <p>Esta página es un pequeño homenaje a él — a su presencia y a todo lo que trae sin proponérselo.</p>
+
+
+
+        
+        <!-- Estadísticas curiosas -->
+        <div class="historia__stats">
+          <div class="stat">
+            <span class="stat__num">∞</span>
+            <span class="stat__label">Siestas al día</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">100%</span>
+            <span class="stat__label">Felino puro</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">1</span>
+            <span class="stat__label">Ringo en el mundo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- ===================== DESPEDIDA ===================== -->
+  <section class="farewell" aria-labelledby="farewell-heading">
+    <div class="farewell__inner reveal">
+      <div class="farewell__icon" aria-hidden="true">🐱</div>
+      <h2 class="farewell__title" id="farewell-heading">Gracias por conocer<br />a Ringo</h2>
+      <p class="farewell__sub">Esperamos que te haya sacado al menos una sonrisa.</p>
+      <a href="#hero" class="btn-back">Volver al inicio</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <p>Creado por <strong>Diego</strong> con cariño para Ringo 🐾</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
