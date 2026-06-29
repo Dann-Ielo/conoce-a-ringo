@@ -352,8 +352,8 @@ a  { text-decoration: none; color: inherit; }
   max-width: var(--max-w);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2.4rem;
 }
 
 /* Tarjeta */
@@ -372,7 +372,7 @@ a  { text-decoration: none; color: inherit; }
 
 .card__img-wrap {
   width: 100%;
-  height: 240px;
+  height: 380px;
   overflow: hidden;
   background: var(--cream);
   position: relative;
@@ -381,6 +381,7 @@ a  { text-decoration: none; color: inherit; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card:hover .card__img-wrap img { transform: scale(1.06); }
@@ -417,6 +418,100 @@ a  { text-decoration: none; color: inherit; }
   font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.65;
+}
+
+/* ── LIBRERÍA DE FOTOS ───────────────────────────────────── */
+.libreria {
+  background: var(--brown);
+  padding: 6rem 2.5rem 5rem;
+}
+
+/* Header sobre fondo oscuro */
+.libreria .section-label { color: var(--amber-light); }
+.libreria .section-title { color: var(--white); }
+
+.section-sub {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.48);
+  margin-top: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* Grid principal — masonry con columns */
+.lib-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  columns: 3;
+  column-gap: 14px;
+}
+
+/* Ítem base */
+.lib-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--brown-mid);
+  cursor: pointer;
+  transition-delay: var(--delay, 0s);
+  break-inside: avoid;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.lib-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.55s ease;
+  filter: brightness(0.88);
+}
+
+.lib-item:hover img {
+  transform: scale(1.07);
+  filter: brightness(1);
+}
+
+/* Overlay con título al hover */
+.lib-item__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(20,10,4,0.75) 0%, transparent 55%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.2rem 1.3rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.lib-item:hover .lib-item__overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+.lib-item__overlay span {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.03em;
+}
+
+/* Nota de ayuda para el usuario */
+.lib-hint {
+  max-width: var(--max-w);
+  margin: 2.2rem auto 0;
+  text-align: center;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.6;
+}
+.lib-hint code {
+  font-family: 'Courier New', monospace;
+  color: var(--amber-light);
+  background: rgba(255,255,255,0.06);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.8rem;
 }
 
 /* ── HISTORIA ────────────────────────────────────────────── */
@@ -568,8 +663,8 @@ a  { text-decoration: none; color: inherit; }
 .reveal {
   opacity: 0;
   transform: translateY(36px);
-  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s),
+              transform 0.75s cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s);
 }
 .reveal.visible {
   opacity: 1;
@@ -588,6 +683,11 @@ a  { text-decoration: none; color: inherit; }
   }
   .historia__img-wrap img { height: 380px; }
   .historia__img-accent   { display: none; }
+
+  /* Librería: 2 columnas en tablet */
+  .lib-grid {
+    columns: 2;
+  }
 }
 
 @media (max-width: 768px) {
@@ -602,6 +702,13 @@ a  { text-decoration: none; color: inherit; }
   .gallery, .historia, .farewell { padding: 4.5rem 1.5rem; }
   .cards-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 
+  /* Librería */
+  .libreria { padding: 4.5rem 1.2rem 3.5rem; }
+  .lib-grid {
+    columns: 2;
+    column-gap: 10px;
+  }
+
   /* Historia */
   .historia__stats { gap: 1.2rem; flex-wrap: wrap; }
 }
@@ -611,4 +718,10 @@ a  { text-decoration: none; color: inherit; }
   .navbar.scrolled { padding: 0.75rem 1.5rem; }
   .hero__content    { padding: 1rem 1.2rem; }
   .cards-grid       { gap: 1.2rem; }
+
+  /* Librería: 1 columna en móvil pequeño */
+  .lib-grid {
+    columns: 1;
+    column-gap: 10px;
+  }
 }
